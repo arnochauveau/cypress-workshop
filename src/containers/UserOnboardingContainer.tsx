@@ -1,26 +1,25 @@
-import React, { useEffect } from "react";
 import {
-  Button,
   Box,
-  useTheme,
-  useMediaQuery,
-  Grid,
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Grid,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
-import { Interpreter } from "xstate";
+import { useMachine, useService } from "@xstate/react";
 import { isEmpty } from "lodash/fp";
-import { useService, useMachine } from "@xstate/react";
-
-import { userOnboardingMachine } from "../machines/userOnboardingMachine";
+import React, { useEffect } from "react";
+import { Interpreter } from "xstate";
 import BankAccountForm from "../components/BankAccountForm";
-import { DataContext, DataEvents } from "../machines/dataMachine";
-import { AuthMachineContext, AuthMachineEvents } from "../machines/authMachine";
 import NavigatorIllustration from "../components/SvgUndrawNavigatorA479";
 import PersonalFinance from "../components/SvgUndrawPersonalFinanceTqcd";
+import { AuthMachineContext, AuthMachineEvents } from "../machines/authMachine";
+import { DataContext, DataEvents } from "../machines/dataMachine";
+import { userOnboardingMachine } from "../machines/userOnboardingMachine";
 
 export interface Props {
   authService: Interpreter<AuthMachineContext, any, AuthMachineEvents, any>;
@@ -100,7 +99,7 @@ const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsSer
         </Box>
       </DialogContent>
       <DialogActions>
-        <Grid container justify="space-between">
+        <Grid container justifyContent="space-between">
           <Grid item>
             <Button
               style={{ paddingRight: "80%" }}

@@ -1,29 +1,28 @@
-import express from "express";
-import { join } from "path";
-import logger from "morgan";
-import passport from "passport";
-import session from "express-session";
+import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
+import { loadSchemaSync } from "@graphql-tools/load";
+import { addResolversToSchema } from "@graphql-tools/schema";
 import bodyParser from "body-parser";
 import cors from "cors";
-import paginate from "express-paginate";
+import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import { loadSchemaSync } from "@graphql-tools/load";
-import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
-import { addResolversToSchema } from "@graphql-tools/schema";
-
+import paginate from "express-paginate";
+import session from "express-session";
+import logger from "morgan";
+import passport from "passport";
+import { join } from "path";
+import { backendPort, frontendPort } from "../src/utils/portUtils";
 import auth from "./auth";
-import userRoutes from "./user-routes";
-import contactRoutes from "./contact-routes";
 import bankAccountRoutes from "./bankaccount-routes";
-import transactionRoutes from "./transaction-routes";
-import likeRoutes from "./like-routes";
-import commentRoutes from "./comment-routes";
-import notificationRoutes from "./notification-routes";
 import bankTransferRoutes from "./banktransfer-routes";
-import testDataRoutes from "./testdata-routes";
-import { checkAuth0Jwt, verifyOktaToken, checkCognitoJwt, checkGoogleJwt } from "./helpers";
+import commentRoutes from "./comment-routes";
+import contactRoutes from "./contact-routes";
 import resolvers from "./graphql/resolvers";
-import { frontendPort, backendPort } from "../src/utils/portUtils";
+import { verifyOktaToken } from "./helpers";
+import likeRoutes from "./like-routes";
+import notificationRoutes from "./notification-routes";
+import testDataRoutes from "./testdata-routes";
+import transactionRoutes from "./transaction-routes";
+import userRoutes from "./user-routes";
 
 require("dotenv").config();
 
@@ -76,7 +75,7 @@ app.use(auth);
 
 /* istanbul ignore if */
 if (process.env.REACT_APP_AUTH0) {
-  app.use(checkAuth0Jwt);
+  //app.use(checkAuth0Jwt);
 }
 
 /* istanbul ignore if */
@@ -86,12 +85,12 @@ if (process.env.REACT_APP_OKTA) {
 
 /* istanbul ignore if */
 if (process.env.REACT_APP_AWS_COGNITO) {
-  app.use(checkCognitoJwt);
+  //app.use(checkCognitoJwt);
 }
 
 /* istanbul ignore if */
 if (process.env.REACT_APP_GOOGLE) {
-  app.use(checkGoogleJwt);
+  // app.use(checkGoogleJwt);
 }
 
 app.use(

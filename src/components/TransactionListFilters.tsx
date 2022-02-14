@@ -1,9 +1,9 @@
+import { Grid, makeStyles, Paper } from "@material-ui/core";
+import { debounce } from "lodash/fp";
 import React from "react";
-import { makeStyles, Paper, Grid } from "@material-ui/core";
-import { TransactionDateRangePayload, TransactionAmountRangePayload } from "../models";
+import { TransactionAmountRangePayload, TransactionDateRangePayload } from "../models";
 import TransactionListDateRangeFilter from "./TransactionDateRangeFilter";
 import TransactionListAmountRangeFilter from "./TransactionListAmountRangeFilter";
-import { debounce } from "lodash/fp";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -38,7 +38,13 @@ const TransactionListFilters: React.FC<TransactionListFiltersProps> = ({
 
   return (
     <Paper className={classes.paper} elevation={0}>
-      <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={1}>
+      <Grid
+        container
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        spacing={1}
+      >
         <Grid item>
           <TransactionListDateRangeFilter
             filterDateRange={filterDateRange}

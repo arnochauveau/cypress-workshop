@@ -1,22 +1,22 @@
+import {
+  Avatar,
+  Badge,
+  createStyles,
+  Grid,
+  ListItem,
+  ListItemAvatar,
+  makeStyles,
+  Paper,
+  Theme,
+  Typography,
+  withStyles,
+} from "@material-ui/core";
+import { CommentRounded as CommentIcon, ThumbUpAltOutlined as LikeIcon } from "@material-ui/icons";
 import React from "react";
 import { useHistory } from "react-router";
-import {
-  ListItem,
-  Typography,
-  Grid,
-  Avatar,
-  ListItemAvatar,
-  Paper,
-  Badge,
-  withStyles,
-  Theme,
-  createStyles,
-  makeStyles,
-} from "@material-ui/core";
-import { ThumbUpAltOutlined as LikeIcon, CommentRounded as CommentIcon } from "@material-ui/icons";
 import { TransactionResponseItem } from "../models";
-import TransactionTitle from "./TransactionTitle";
 import TransactionAmount from "./TransactionAmount";
+import TransactionTitle from "./TransactionTitle";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,7 +79,7 @@ const TransactionItem: React.FC<TransactionProps> = ({ transaction }) => {
           <Grid item>
             <ListItemAvatar>
               <Badge
-                overlap="circle"
+                overlap="circular"
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "right",
@@ -100,7 +100,7 @@ const TransactionItem: React.FC<TransactionProps> = ({ transaction }) => {
                 <Grid
                   container
                   direction="row"
-                  justify="flex-start"
+                  justifyContent="flex-start"
                   alignItems="flex-start"
                   spacing={1}
                   className={classes.socialStats}

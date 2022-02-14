@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import { Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
 import { useService } from "@xstate/react";
-import { Interpreter } from "xstate";
+import React, { useEffect } from "react";
 import { Link as RouterLink, useRouteMatch } from "react-router-dom";
-import { makeStyles, Grid, Button, Paper, Typography } from "@material-ui/core";
-
-import { AuthMachineContext, AuthMachineEvents } from "../machines/authMachine";
-import { DataContext, DataEvents } from "../machines/dataMachine";
+import { Interpreter } from "xstate";
 import BankAccountForm from "../components/BankAccountForm";
 import BankAccountList from "../components/BankAccountList";
+import { AuthMachineContext, AuthMachineEvents } from "../machines/authMachine";
+import { DataContext, DataEvents } from "../machines/dataMachine";
 
 export interface Props {
   authService: Interpreter<AuthMachineContext, any, AuthMachineEvents, any>;
@@ -56,7 +55,7 @@ const BankAccountsContainer: React.FC<Props> = ({ authService, bankAccountsServi
 
   return (
     <Paper className={classes.paper}>
-      <Grid container direction="row" justify="space-between" alignItems="center">
+      <Grid container direction="row" justifyContent="space-between" alignItems="center">
         <Grid item>
           <Typography component="h2" variant="h6" color="primary" gutterBottom>
             Bank Accounts

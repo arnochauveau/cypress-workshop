@@ -1,6 +1,5 @@
+import { Avatar, Grid, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
 import React from "react";
-import { ListItem, ListItemText, ListItemAvatar, Avatar, Grid } from "@material-ui/core";
-
 import { User } from "../models";
 
 export interface UserListItemProps {
@@ -23,7 +22,7 @@ const UserListItem: React.FC<UserListItemProps> = ({ user, setReceiver, index })
               component={"span"}
               container
               direction="row"
-              justify="flex-start"
+              justifyContent="flex-start"
               alignItems="flex-start"
               spacing={1}
             >
