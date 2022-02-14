@@ -84,6 +84,7 @@
     "concurrently": "6.4.0",
     "cors": "2.8.5",
     "cross-env": "7.0.3",
+    "cypress": "^9.4.1",
     "dotenv": "10.0.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-cypress": "2.12.1",
@@ -131,7 +132,7 @@
     "test:unit:ci": "react-scripts test --watchAll false --ci --runInBand",
     "start:api": "yarn tsnode --files backend/app.ts",
     "start:api:watch": "nodemon --exec yarn tsnode --watch 'backend' backend/app.ts",
-    "start:react:proxy-server": "yarn tsnode scripts/testServer.ts", 
+    "start:react:proxy-server": "yarn tsnode scripts/testServer.ts",
     "prettier": "prettier --write '**/**.{ts,js,tsx}' '*.{json,md,yml}'",
     "tsnode": "nyc --silent ts-node -P tsconfig.tsnode.json",
     "tsnode:not-instrumented": "ts-node -P tsconfig.tsnode.json",
@@ -142,7 +143,8 @@
     "predev": "yarn db:seed:dev",
     "prebuild": "yarn types",
     "eject": "react-scripts eject",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "cypress:open" : "cypress open"
   },
   "eslintConfig": {
     "env": {
