@@ -3,7 +3,7 @@
 Try fully testing the application's features. 
 Make a seperate `.spec.js` file per feature.
 
-You should fully test the happy paths of the following features:
+You should fully test at least the happy paths of the following features:
 
 - login 
 - registration
@@ -16,7 +16,7 @@ You should fully test the happy paths of the following features:
 
 example of one file's structure
 
-e.g.: login.spec.js
+e.g.: `login.spec.js`
 
 ```js
 describe("Login page", () => {
@@ -34,3 +34,5 @@ describe("Login page", () => {
   ...
 });
 ```
+- list of all all assertion chainers: https://docs.cypress.io/guides/references/assertions#Chai 
+- list of all Cypress commands: https://docs.cypress.io/api/commands/and 
