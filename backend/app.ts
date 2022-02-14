@@ -17,7 +17,6 @@ import bankTransferRoutes from "./banktransfer-routes";
 import commentRoutes from "./comment-routes";
 import contactRoutes from "./contact-routes";
 import resolvers from "./graphql/resolvers";
-import { verifyOktaToken } from "./helpers";
 import likeRoutes from "./like-routes";
 import notificationRoutes from "./notification-routes";
 import testDataRoutes from "./testdata-routes";
@@ -41,12 +40,6 @@ const schemaWithResolvers = addResolversToSchema({
 });
 
 const app = express();
-
-/* istanbul ignore next */
-// @ts-ignore
-if (global.__coverage__) {
-  require("@cypress/code-coverage/middleware/express")(app);
-}
 
 app.use(cors(corsOption));
 app.use(logger("dev"));
@@ -72,27 +65,6 @@ if (process.env.NODE_ENV === "test" || process.env.NODE_ENV === "development") {
 }
 
 app.use(auth);
-
-/* istanbul ignore if */
-if (process.env.REACT_APP_AUTH0) {
-  //app.use(checkAuth0Jwt);
-}
-
-/* istanbul ignore if */
-if (process.env.REACT_APP_OKTA) {
-  app.use(verifyOktaToken);
-}
-
-/* istanbul ignore if */
-if (process.env.REACT_APP_AWS_COGNITO) {
-  //app.use(checkCognitoJwt);
-}
-
-/* istanbul ignore if */
-if (process.env.REACT_APP_GOOGLE) {
-  // app.use(checkGoogleJwt);
-}
-
 app.use(
   "/graphql",
   graphqlHTTP({
