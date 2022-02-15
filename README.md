@@ -19,6 +19,8 @@ You should fully test at least the happy paths of the following features:
 
  > TIP: run one file at a time from the Cypress application to avoid waiting on previously tested tests.
 
+ > TIP: `cy.login()` will come in handy to test features that are behind the login screen.
+
 example of one file's structure
 
 e.g.: `login.spec.js`
