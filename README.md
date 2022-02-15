@@ -14,6 +14,11 @@ You should fully test at least the happy paths of the following features:
 - making a new payment
 - logging out
 
+>TIP: add the following line of code to the top of your spec file to enable code hinting in the editor:
+ `/// <reference types="Cypress" />`
+
+ > TIP: run one file at a time from the Cypress application to avoid waiting on previously tested tests.
+
 example of one file's structure
 
 e.g.: `login.spec.js`
