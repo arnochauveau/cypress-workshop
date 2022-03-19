@@ -1,3 +1,8 @@
+# NOTE
+
+This repo was forked from cypress-io/cypress-realworld-app for a workshop. 
+Cypress + tests were removed so people who were following the workshop had some exercises.
+
 # Let's get started
 
 ## Running the demo project
